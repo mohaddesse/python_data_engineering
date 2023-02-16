@@ -1,2 +1,2 @@
 # python_data_engineering
-essential concepts for data engineering
+essential python concepts for data engineering
