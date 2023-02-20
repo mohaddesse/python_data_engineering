@@ -1,0 +1,32 @@
+
+first of all you should install mysql exension
+
+> after that below files and Outlone  you have part MYSQL click that +
+okey you shoul compelet host=localhost user=root password="****" ...
+
+to load csv in my sql you have these errors:
+1. Error: ER_OPTION_PREVENTS_STATEMENT: The MySQL server is running with the --secure-file-priv option so it cannot execute this statement
+
+to solve ===> I solved it using the LOCAL option in the command:
+
+LOAD DATA LOCAL INFILE "text.txt" INTO TABLE mytable;
+
+2. UNKNOWN_CODE_PLEASE_REPORT: Loading local data is disabled; this must be enabled on both the client and server sides
+
+solve ====>
+
+
+
+1. nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+2. in the [mysqld] section add this line:
+local_infile    = 1
+3. add to the bottom of the file these two lines:
+[client]
+
+4. local_infile    = 1
+run this command from my client: SET GLOBAL local_infile=1;
+
+3. error :  ENOENT: no such file or directory, open './car.csv'
+
+solve ===> you shoul write complete adress ==> "/home/mohaddesse/Documents/C#/class/car.csv"
